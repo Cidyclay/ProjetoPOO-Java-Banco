@@ -1,0 +1,178 @@
+package dao;
+import modelo.Caixa;
+import dao.Conta_Fisica_DAO;
+import dao.Pessoa_Fisica_DAO;
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+public class Caixa_Fisico_DAO extends Caixa {
+	static Scanner input = new Scanner(System.in);
+	
+	
+	@Override
+	// estou aplicando um metodo operacoes, que ao passar um switch case
+    // ele dara determinadas operações do caixa que ira realizar
+    // determinadas funções.
+	public void operacoes() {
+		 
+		
+
+		int operacao =
+    			Integer.parseInt(JOptionPane.showInputDialog("--- Selecione uma operação ---" + 
+    	"|   Opção 1 - Criar conta" +
+    	"|   Opção 2 - Depositar" +
+    	"|   Opção 3 - Sacar" +
+    	"|   Opção 4 - Transferir" +
+    	"|   Opção 5 - Listar" +
+    	"|   Opção 6 - Sair"));
+    	
+    	switch (operacao) {
+    	case 1:
+    		criarConta();
+    		break;
+    	case 2:
+    		depositar();
+    		break;
+    	case 3:
+    		sacar();
+    		break;
+    	case 4:
+    		transferir();
+    		break;
+    	case 5:
+    		listarContas();
+    		break;
+    	case 6:
+    		JOptionPane.showMessageDialog(null, "Obrigado por utilizar, O sistema da caixa!");
+    		break;
+    		
+    		default:
+    			JOptionPane.showMessageDialog(null, "Opção inválida");
+    			operacoes();
+    			break;
+    	}
+    	
+		
+	}
+
+	@Override
+	public void criarConta() {
+		System.out.println("Você está criando uma conta\n");
+
+        System.out.println("\nNome: ");
+        String nome = input.next();
+
+        System.out.println("\nCPF: ");
+        String cpf = input.next();
+
+        System.out.println("Nascimento: ");
+        String email = input.next();
+
+        Pessoa_Fisica_DAO cliente = new Pessoa_Fisica_DAO(nome, cpf, email);
+
+        Conta_Fisica_DAO conta = new Conta_Fisica_DAO(cliente);
+
+        
+        System.out.println("--- Sua conta foi criada com sucesso! ---");
+
+        operacoes();
+		
+	}
+
+	@Override
+	protected void depositar() {
+		 System.out.println("Número da conta: ");
+	        int numeroConta = input.nextInt();
+	        Conta_Fisica_DAO conta = encontrarConta(numeroConta);
+
+	        if(conta != null) {
+	            System.out.println("Qual valor deseja depositar? ");
+	            Double valorDeposito = input.nextDouble();
+
+	            conta.depositar(valorDeposito);
+	        }else {
+	            System.out.println("--- Conta não encontrada ---");
+	        }
+
+	        operacoes();
+		
+	}
+
+	@Override
+	protected void sacar() {
+		 System.out.println("Número da conta: ");
+	        int numeroConta = input.nextInt();
+
+	        Conta conta = encontrarConta(numeroConta);
+
+	        if(conta != null) {
+	            System.out.println("Qual valor deseja sacar? ");
+	            Double valorSaque = input.nextDouble();
+
+	            conta.sacar(valorSaque);
+	            System.out.println("--- Saque realizado com sucesso! ---");
+	        }else {
+	            System.out.println("--- Conta não encontrada ---");
+	        }
+
+	        operacoes();
+	}
+
+	@Override
+	protected void transferir() {
+		 System.out.println("Número da conta que vai enviar a transferência: ");
+	        int numeroContaRemetente = input.nextInt();
+
+	        Conta contaRemetente = encontrarConta(numeroContaRemetente);
+
+	        if(contaRemetente != null) {
+	            System.out.println("Número da conta do destinatário: ");
+	            int numeroContaDestinatario = input.nextInt();
+
+	            Conta contaDestinatario = encontrarConta(numeroContaDestinatario);
+
+	            if(contaDestinatario != null) {
+	                System.out.println("Valor da transferência: ");
+	                Double valor = input.nextDouble();
+
+	                contaRemetente.transferencia(contaDestinatario, valor);
+
+	            }else {
+	                System.out.println("--- A conta para depósito não foi encontrada ---");
+	            }
+
+	        }else {
+	            System.out.println("--- Conta para transferência não encontrada ---");
+	        }
+	        operacoes();
+		
+	}
+
+	@Override
+	protected void listarContas() {
+		if(contasBancarias.size() > 0) {
+            for(Conta conta: contasBancarias) {
+                System.out.println(conta);
+            }
+        }else {
+            System.out.println("--- Não há contas cadastradas ---");
+        }
+
+        operacoes();
+    }
+	
+	private static Conta encontrarConta(int numeroConta) {
+        Conta conta = null;
+        if(contasBancarias.size() > 0) {
+            for(Conta contaa : contasBancarias) {
+                if(contaa.getNumeroConta() == numeroConta) {
+                    conta = contaa;
+                }
+            }
+        }
+        return conta;
+    }
+		
+	}
+

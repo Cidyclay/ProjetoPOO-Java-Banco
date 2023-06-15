@@ -1,0 +1,5 @@
+package dao;
+
+public class Conta_Juridica_DAO {
+
+}

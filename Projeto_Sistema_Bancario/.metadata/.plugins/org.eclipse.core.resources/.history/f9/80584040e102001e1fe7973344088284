@@ -1,0 +1,14 @@
+package modelo;
+
+import javax.swing.JOptionPane;
+
+public abstract class Caixa {
+	 protected abstract void operacoes();
+	    	protected abstract void criarConta();
+	    	protected abstract void depositar();
+	    	protected abstract void sacar();
+	    	protected abstract void transferir();
+	    	protected abstract void listarContas();
+	
+
+}

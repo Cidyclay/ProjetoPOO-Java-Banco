@@ -1,0 +1,22 @@
+package dao;
+
+import modelo.Pessoa;
+
+public class Pessoa_Fisica_DAO extends Pessoa{
+
+	public Pessoa_Fisica_DAO(String nome, String cpf, String dataNascimento, String mei) {
+		
+		super(nome, cpf, dataNascimento);
+		
+		
+		
+	}
+
+
+
+
+
+	
+	
+	
+}

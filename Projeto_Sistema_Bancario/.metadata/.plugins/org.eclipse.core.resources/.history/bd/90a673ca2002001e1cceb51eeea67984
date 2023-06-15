@@ -1,0 +1,5 @@
+package dao;
+
+public class Pessoa_Juridica_DAO {
+
+}

@@ -1,0 +1,61 @@
+package App;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
+import dao.Pessoa_Fisica_DAO;
+import dao.Conta_Fisica_DAO;
+
+public class Aplication {
+	static Scanner input = new Scanner(System.in);
+	    public static void main(String[] args) {
+	     operacoes();
+	    	
+	    	
+	    }
+	    public static void operacoes(){
+	    	int operacao =
+	    			Integer.parseInt(JOptionPane.showInputDialog("--- Selecione uma operação ---" + 
+	    	"|   Opção 1 - Criar conta" +
+	    	"|   Opção 2 - Depositar" +
+	    	"|   Opção 3 - Sacar" +
+	    	"|   Opção 4 - Transferir" +
+	    	"|   Opção 5 - Listar" +
+	    	"|   Opção 6 - Sair"));
+	    	
+	    	switch (operacao) {
+	    	case 1:
+	    		criarConta();
+	    		break;
+	    	case 2:
+	    		depositar();
+	    		break;
+	    	case 3:
+	    		sacar();
+	    		break;
+	    	case 4:
+	    		transferir();
+	    		break;
+	    	case 5:
+	    		listarContas();
+	    		break;
+	    	case 6:
+	    		JOptionPane.showMessageDialog(null, "Obrigado por utilizar, O sistema da caixa!");
+	    		break;
+	    		
+	    		default:
+	    			System.out.println("Opção inválida!");
+	    			operacoes();
+	    			break;
+	    	}
+	    	
+	    	
+	    	
+	    }
+	}
+
+				
+		
+
+

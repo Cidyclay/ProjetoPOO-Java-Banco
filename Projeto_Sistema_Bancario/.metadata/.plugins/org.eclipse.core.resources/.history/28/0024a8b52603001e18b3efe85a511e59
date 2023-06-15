@@ -1,0 +1,53 @@
+package App;
+import dao.Caixa_Fisico_DAO;
+import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+public class Aplication {
+	
+
+	static Scanner input = new Scanner(System.in);
+	
+	public static void main(String args[]) {
+		appcaixa();
+		}
+public static void appcaixa() {
+		
+		
+
+		int app =
+    			Integer.parseInt(JOptionPane.showInputDialog("--- Selecione uma operação ---" + 
+    	"|   Opção 1 - Conta_Fisica" +
+    	"|   Opção 2 - Conta_Juridica" +
+    	"|   Opção 3 - Sair"));
+    	
+    	switch (app) {
+    	case 1:
+    		Caixa_Fisico_DAO c = new Caixa_Fisico_DAO();
+ 		c.operacoes();
+    		break;
+    	case 2:
+    		Caixa_Juridico_DAO c = new Caixa_Juridico_DAO();
+    		break;
+    	
+    	case 3:
+    		JOptionPane.showMessageDialog(null, "Obrigado por utilizar, O sistema da caixa!");
+    		break;
+    		
+    		default:
+    			JOptionPane.showMessageDialog(null, "Opção inválida");
+    			appcaixa();
+    			break;
+    	}
+    	
+		
+	}
+
+    }
+	
+
+
+				
+		
+
+

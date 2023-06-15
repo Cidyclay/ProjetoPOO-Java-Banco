@@ -1,0 +1,55 @@
+package dao;
+
+import modelo.Conta;
+import modelo.Pessoa;
+
+public class Conta_Juridica_DAO extends Conta{
+
+	protected Conta_Juridica_DAO(Pessoa pessoa) {
+		super(pessoa);
+		this.pessoa = pessoa;
+		//Toda vez que uma conta for criada, o id, e auto-incrementado
+		contadorDeContas = contadorDeContas+ 1;
+		this.numeroConta = contadorDeContas;
+		
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void depositar(Double valor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sacar(Double valor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void fecharConta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reabrirConta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void realizarTransferencia(double quantia, Conta destino) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+}

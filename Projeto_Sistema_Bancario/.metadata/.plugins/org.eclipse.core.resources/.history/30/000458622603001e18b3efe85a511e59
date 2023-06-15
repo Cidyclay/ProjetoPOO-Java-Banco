@@ -1,0 +1,5 @@
+package dao;
+
+public class Caixa_Juridico_DAO {
+
+}

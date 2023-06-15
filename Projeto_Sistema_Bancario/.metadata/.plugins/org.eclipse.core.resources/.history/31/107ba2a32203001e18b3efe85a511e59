@@ -1,0 +1,24 @@
+package dao;
+
+import modelo.Pessoa;
+
+public class Pessoa_Juridica_DAO extends Pessoa {
+	String MEI;
+
+	public Pessoa_Juridica_DAO(String nome, String cpf, String dataNascimento,String MEI) {
+		super(nome, cpf, dataNascimento);
+		
+		this.MEI = MEI;
+	}
+	//Como as contas juridicas devem possuir mei, 
+	//criei isto para poder chamar nos metodos
+	
+	protected String getMEI() {
+		return MEI;
+	}
+
+	protected void setMEI(String mEI) {
+		MEI = mEI;
+	}
+
+}

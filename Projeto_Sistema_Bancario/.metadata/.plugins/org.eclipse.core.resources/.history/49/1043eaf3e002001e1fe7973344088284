@@ -1,0 +1,49 @@
+package modelo;
+
+import javax.swing.JOptionPane;
+
+public abstract class Caixa {
+	 public static void operacoes(){
+	    	int operacao =
+	    			Integer.parseInt(JOptionPane.showInputDialog("--- Selecione uma operação ---" + 
+	    	"|   Opção 1 - Criar conta" +
+	    	"|   Opção 2 - Depositar" +
+	    	"|   Opção 3 - Sacar" +
+	    	"|   Opção 4 - Transferir" +
+	    	"|   Opção 5 - Listar" +
+	    	"|   Opção 6 - Sair"));
+	    	
+	    	switch (operacao) {
+	    	case 1:
+	    		criarConta();
+	    		break;
+	    	case 2:
+	    		depositar();
+	    		break;
+	    	case 3:
+	    		sacar();
+	    		break;
+	    	case 4:
+	    		transferir();
+	    		break;
+	    	case 5:
+	    		listarContas();
+	    		break;
+	    	case 6:
+	    		JOptionPane.showMessageDialog(null, "Obrigado por utilizar, O sistema da caixa!");
+	    		break;
+	    		
+	    		default:
+	    			JOptionPane.showMessageDialog(null, "Opção inválida");
+	    			operacoes();
+	    			break;
+	    		}
+	    	}
+	    	protected abstract void criarConta();
+	    	protected abstract void depositar();
+	    	protected abstract void sacar();
+	    	protected abstract void transferir();
+	    	protected abstract void listarContas();
+	
+
+}

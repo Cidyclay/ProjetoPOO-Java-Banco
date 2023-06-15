@@ -1,0 +1,76 @@
+package dao;
+
+import java.time.format.DateTimeFormatter;
+
+import modelo.Conta;
+import modelo.Pessoa;
+import dao.Pessoa_Juridica_DAO;
+
+public class Conta_Juridica_DAO extends Conta{
+
+	protected Conta_Juridica_DAO(Pessoa pessoa) {
+		super(pessoa);
+		this.pessoa = pessoa;
+		//Toda vez que uma conta for criada, o id, e auto-incrementado
+		contadorDeContas = contadorDeContas+ 1;
+		this.numeroConta = contadorDeContas;
+		
+	}
+
+	@Override
+	public String toString() {
+		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		    String dataNascimentoFormatada = this.pessoa.getDataNascimento().format(formatter);
+		 return "\nNumero Da Conta: " + this.getNumeroConta() +
+	                "\nCliente: " + this.pessoa.getNome() +
+	                "\nCPF: " + this.pessoa.getCpf() +
+	                "\nMei: " + this.pessoa.getMei()+
+	                "\nNascimento: " + dataNascimentoFormatada+
+	                "\nIdade: " + pessoa.getIdade()+
+	                "\nSaldo: " + this.getSaldo() +
+	                "\n" ;
+	}
+
+	@Override
+	public void depositar(Double valor) {
+		if(valor >0) {
+			this.saldo = this.getSaldo() + valor;
+			System.out.println("Seu depósito foi realizado com sucesso!");
+		}else {
+			System.out.println("Não foi possível realizar o depósito!");
+		}
+		
+	}
+
+	@Override
+	public void sacar(Double valor) {
+		if(valor> 0 && this.getSaldo() >= valor) {
+			this.saldo = this.getSaldo() -valor;
+			System.out.println("Saque realizado com sucesso!");
+		}else {
+			System.out.println("Não foi possível realziar o saque!");
+		}
+		
+	}
+
+	@Override
+	public void fecharConta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reabrirConta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void realizarTransferencia(double quantia, Conta destino) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+}

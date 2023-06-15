@@ -1,0 +1,26 @@
+package App;
+
+import dao.Pessoa_Fisica_DAO;
+import dao.Conta_Fisica_DAO;
+
+public class Aplication {
+	
+		public static void main(String[] args ) {
+			 Pessoa_Fisica_DAO p1 = new Pessoa_Fisica_DAO("João", "123456789", "14/04/2005");
+		        Conta_Fisica_DAO p2 = new Conta_Fisica_DAO(1, p1, 1000.0, true);
+		        
+		        System.out.println("Saldo inicial da conta: " + p2.getSaldo());
+		        System.out.println("Numero da conta: " + p2.getNumeroConta());
+		        System.out.println("Dono da conta: " + p2.getPessoa());
+		        Pessoa_Fisica_DAO p3 = new Pessoa_Fisica_DAO("Gustavo", "123456789", "14/04/2005");
+		        Conta_Fisica_DAO oi = new Conta_Fisica_DAO(1, p3, 1000.0, true);
+		        System.out.println(oi);
+		       
+		       
+		        
+		    }
+			
+				
+		}
+
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="modelo.Pessoa"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="dao.Conta_Juridica_DAO"/>
+    <fullyQualifiedTypeName name="dao.Conta_Fisica_DAO"/>
+    <fullyQualifiedTypeName name="dao.Caixa_Fisico_DAO"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="dao.Pessoa_Fisica_DAO"/>
+    <fullyQualifiedTypeName name="modelo.Conta"/>
+    <fullyQualifiedTypeName name="modelo.Caixa"/>
+    <fullyQualifiedTypeName name="dao.Caixa_Juridico_DAO"/>
+    <fullyQualifiedTypeName name="dao.Pessoa_Juridica_DAO"/>
+</qualifiedTypeNameHistroy>

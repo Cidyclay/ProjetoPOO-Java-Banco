@@ -1,0 +1,51 @@
+package modelo;
+
+public abstract class Conta {
+	protected static int contadorDeContas = 1;
+	protected int numeroConta =0;
+	protected Pessoa pessoa;
+	protected Double saldo = 0.0;
+	protected Boolean status = true;
+	protected Conta(Pessoa pessoa, Double saldo, Boolean status) {
+		this.numeroConta = contadorDeContas +1;
+		this.pessoa = pessoa;
+		this.saldo = saldo;
+		this.status = status;
+	}
+	public int getNumeroConta() {
+		return numeroConta;
+	}
+	protected void setNumeroConta(int numeroConta) {
+		this.numeroConta = numeroConta;
+	}
+	protected Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	public Double getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
+	}
+	public Boolean getStatus() {
+		return status;
+	}
+	protected void setStatus(Boolean status) {
+		this.status = status;
+	}
+	@Override
+	public abstract String toString();
+	public abstract void depositar(Double valor);
+	public abstract void sacar(Double valor);
+	public abstract void fecharConta();
+	public abstract void reabrirConta();
+	public abstract void realizarTransferencia(double quantia, Conta destino);
+	
+	
+	
+}
+
+	

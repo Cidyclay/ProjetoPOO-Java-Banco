@@ -1,0 +1,14 @@
+package dao;
+
+import modelo.Pessoa;
+
+public class Pessoa_Juridica_DAO extends Pessoa {
+	String MEI;
+
+	public Pessoa_Juridica_DAO(String nome, String cpf, String dataNascimento,String MEI) {
+		super(nome, cpf, dataNascimento);
+		
+		this.MEI = MEI;
+	}
+
+}

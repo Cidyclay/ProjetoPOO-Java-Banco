@@ -1,0 +1,5 @@
+package dao;
+import modelo.Caixa;
+public class Caixa_Juridico_DAO {
+
+}

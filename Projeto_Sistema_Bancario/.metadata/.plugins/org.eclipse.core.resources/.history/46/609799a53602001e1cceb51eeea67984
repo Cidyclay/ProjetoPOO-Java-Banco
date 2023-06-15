@@ -1,0 +1,39 @@
+package App;
+
+import dao.Pessoa_Fisica_DAO;
+import dao.Conta_Fisica_DAO;
+
+public class Aplication {
+	
+		public static void main(String[] args ) {
+		
+			 Pessoa_Fisica_DAO pessoa1 = new Pessoa_Fisica_DAO("João", "123456789", "14/04/2005");
+		        Conta_Fisica_DAO conta1 = new Conta_Fisica_DAO(1, pessoa1, 1000.0, true);
+
+		        System.out.println("Saldo inicial da conta: " + conta1.getSaldo());
+		        System.out.println("Número da conta: " + conta1.getNumeroConta());
+		        System.out.println("Dono da conta: " + conta1.getPessoa());
+
+		        Pessoa_Fisica_DAO pessoa2 = new Pessoa_Fisica_DAO("Gustavo", "987654321", "01/01/2000");
+		        Conta_Fisica_DAO conta2 = new Conta_Fisica_DAO(2, pessoa2, 500.0, true);
+
+		        conta1.depositar(500.0);
+		        System.out.println("Saldo após depósito: " + conta1.getSaldo());
+
+		        conta1.sacar(200.0);
+		        System.out.println("Saldo após saque: " + conta1.getSaldo());
+
+		        conta1.realizarTransferencia(300.0, conta2);
+		        System.out.println("Saldo da conta1 após transferência: " + conta1.getSaldo());
+		        System.out.println("Saldo da conta2 após transferência: " + conta2.getSaldo());
+
+		        conta1.fecharConta();
+		        System.out.println("Status da conta1 após fechamento: " + conta1.getStatus());
+
+		        conta1.reabrirConta();
+		        System.out.println("Status da conta1 após reabertura: " + conta1.getStatus());
+		    }
+				
+		}
+
+

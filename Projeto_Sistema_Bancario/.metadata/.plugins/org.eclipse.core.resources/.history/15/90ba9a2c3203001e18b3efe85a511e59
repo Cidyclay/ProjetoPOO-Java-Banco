@@ -1,0 +1,18 @@
+package dao;
+
+import modelo.Pessoa;
+
+public class Pessoa_Juridica_DAO extends Pessoa {
+	
+
+	public Pessoa_Juridica_DAO(String nome, String cpf, String dataNascimento,String mei) {
+		(nome, cpf, dataNascimento);
+		
+		
+	}
+
+	
+}
+	
+	
+	

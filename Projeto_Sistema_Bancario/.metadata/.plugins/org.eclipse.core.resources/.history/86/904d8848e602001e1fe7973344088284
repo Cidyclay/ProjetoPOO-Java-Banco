@@ -1,0 +1,25 @@
+package App;
+import dao.Caixa_Fisico_DAO;
+import java.util.Scanner;
+public class Aplication {
+	
+
+	static Scanner input = new Scanner(System.in);
+	
+	public static void main(String args[]) {
+		
+		 Caixa_Fisico_DAO caixa = new Caixa_Fisico_DAO();
+	        caixa.operacoes(); // Chama o método operacoes() da classe Caixa_Fisico_DAO
+	    
+		
+		
+		}
+
+    }
+	
+
+
+				
+		
+
+
