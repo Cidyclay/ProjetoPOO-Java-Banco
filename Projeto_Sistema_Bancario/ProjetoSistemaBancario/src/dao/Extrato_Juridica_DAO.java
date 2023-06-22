@@ -1,21 +1,22 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Extrato_Fisico;
-import java.sql.Date;
-import bd.Conexao_Banco;
 
-public class Extrato_Fisico_DAO {
+import bd.Conexao_Banco;
+import modelo.Extrato_Juridica;
+
+public class Extrato_Juridica_DAO {
 	
-	
-	public void save(Extrato_Fisico extrato) {
+
+	public void save(Extrato_Juridica extrato) {
 		
-		String sql = "INSERT INTO transacao_fisica (id_conta,tipo,valor,data) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO transacao_Juridica (id_conta,tipo,valor,data) VALUES (?,?,?,?)";
 		
 		
 		  	Connection conn = null;
@@ -59,11 +60,11 @@ public class Extrato_Fisico_DAO {
 
 	}
 	
-	public List<Extrato_Fisico> ListarExtratos_Fisicos(){
+	public List<Extrato_Juridica> ListarExtratos_Juridicas(){
 		
-		String sql = "SELECT * FROM transacao_fisica";
+		String sql = "SELECT * FROM transacao_juridica";
 		
-		List<Extrato_Fisico> extrato_fisico = new ArrayList<Extrato_Fisico>();
+		List<Extrato_Juridica> extrato_fisico = new ArrayList<Extrato_Juridica>();
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -76,12 +77,12 @@ public class Extrato_Fisico_DAO {
 			
 			while(rset.next()) {
 				
-				int idPessoa_Fisica = rset.getInt("id_conta");
+				int idPessoa = rset.getInt("id_conta");
 				String descricao = rset.getString("tipo");
 				double valor = rset.getDouble("valor");
 				Date  dataSql = rset.getDate("data");
 				LocalDate data = dataSql.toLocalDate();
-				Extrato_Fisico extrato = new Extrato_Fisico(idPessoa_Fisica,data,descricao,valor);
+				Extrato_Juridica extrato = new Extrato_Juridica(idPessoa,data,descricao,valor);
 				
 			extrato_fisico.add(extrato);
 			}
@@ -105,11 +106,11 @@ public class Extrato_Fisico_DAO {
 		
 	}
 	
-	public List <Extrato_Fisico> acharExtratos(int id) {
-		List<Extrato_Fisico> extratosEncontrados =  new ArrayList<>();
-		List<Extrato_Fisico> extratos = ListarExtratos_Fisicos();
+	public List <Extrato_Juridica> acharExtratos(int id) {
+		List<Extrato_Juridica> extratosEncontrados =  new ArrayList<>();
+		List<Extrato_Juridica> extratos = ListarExtratos_Juridicas();
 		
-		for(Extrato_Fisico extrato : extratos) {
+		for(Extrato_Juridica extrato : extratos) {
 			if(extrato.getIdPessoa() == id) {
 				extratosEncontrados.add(extrato);
 				
@@ -120,10 +121,10 @@ public class Extrato_Fisico_DAO {
 	}
 	
 	
-	public  List<Extrato_Fisico> filtroExtrato(int id,int mes, int ano){
-		List<Extrato_Fisico> extratosSeparados = new ArrayList<>();
-		List<Extrato_Fisico> extratos = acharExtratos(id); 
-		for(Extrato_Fisico extrato : extratos ) {
+	public  List<Extrato_Juridica> filtroExtrato(int id,int mes, int ano){
+		List<Extrato_Juridica> extratosSeparados = new ArrayList<>();
+		List<Extrato_Juridica> extratos = acharExtratos(id); 
+		for(Extrato_Juridica extrato : extratos ) {
 			if(extrato.getMes() ==mes && extrato.getAno() ==ano) {
 				extratosSeparados.add(extrato);
 				
@@ -138,4 +139,5 @@ public class Extrato_Fisico_DAO {
 		
 	}
 	
+
 }

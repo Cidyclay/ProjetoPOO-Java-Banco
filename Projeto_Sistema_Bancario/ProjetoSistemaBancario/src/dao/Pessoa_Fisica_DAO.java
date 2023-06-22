@@ -26,7 +26,6 @@ public class Pessoa_Fisica_DAO {
 
 			  }
 
-			}
 			
 			String sql = "INSERT INTO pessoa_fisica (nome,cpf,data_nascimento) VALUES (?,?,?)"; 
 			
@@ -73,6 +72,7 @@ public class Pessoa_Fisica_DAO {
 				}
 			}
 			
+			}
 		}public void update(Pessoa_Fisica pessoa) {
 			
 			String sql = "UPDATE pessoa_fisica SET nome = ?, cpf = ?, data_nascimento = ? "+
@@ -151,7 +151,7 @@ public class Pessoa_Fisica_DAO {
 
 		    String sql = "SELECT * FROM pessoa_fisica";
 		    
-		    List<Pessoa_Fisica> pessoa_fisica = new ArrayList<Pessoa_Fisica>();
+		    List<Pessoa_Fisica> pessoa_Fisica = new ArrayList<Pessoa_Fisica>();
 
 		    Connection conn = null;
 		    PreparedStatement pstm = null;
@@ -169,7 +169,7 @@ public class Pessoa_Fisica_DAO {
 		            String dataNascimentoStr = rset.getString("data_nascimento");
 		            Pessoa_Fisica pessoa = new Pessoa_Fisica(nome, cpf, "", dataNascimentoStr);
 		            pessoa.setId(id);
-		            pessoa_fisica.add(pessoa);
+		            pessoa_Fisica.add(pessoa);
 		        }
 		    } catch (Exception e) {
 		        e.printStackTrace();
@@ -186,7 +186,7 @@ public class Pessoa_Fisica_DAO {
 				}
 			}
 
-		    return pessoa_fisica;
+		    return pessoa_Fisica;
 		}
 		public Pessoa_Fisica acharPessoa_Fisica(int id) {
 			 Pessoa_Fisica Pessoa_F = null;

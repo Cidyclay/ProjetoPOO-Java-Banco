@@ -76,6 +76,10 @@ public class Conta_Fisica extends Conta {
 	@Override
 	public void transferir(Conta contaDestino, Double valor) {
 		 Conta_Fisica contaDestinoFisica = (Conta_Fisica) contaDestino;
+		 double tarifa = valor * 0.1;
+		 valor = valor+tarifa;
+		 System.out.println("Tarifa de 10%");
+		 System.out.println(valor);
 		  if(valor > 0 && this.getSaldo() >= valor) {
 	            setSaldo(getSaldo() - valor);
 	            //this.saldo = this.getSaldo() - valor;

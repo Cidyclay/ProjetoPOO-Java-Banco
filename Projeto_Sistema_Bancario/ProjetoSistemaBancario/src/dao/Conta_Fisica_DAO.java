@@ -16,7 +16,7 @@ public class Conta_Fisica_DAO  {
 
 	public void save(Conta_Fisica conta) {
 		 
-        String sql = "INSERT INTO conta_fisica (id_conta_fisica,id_pessoa_fisica,saldo, status) VALUES (?,?, ?, ?)";
+        String sql = "INSERT INTO conta_fisica (id_conta_Fisica,id_pessoa_Fisica,saldo, status) VALUES (?,?, ?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -55,7 +55,7 @@ public class Conta_Fisica_DAO  {
 	public void updateSaldo(Conta_Fisica conta) {
 		
 		
-		String sql = "UPDATE conta_fisica set saldo = ? " +"WHERE id_conta_fisica = ?";
+		String sql = "UPDATE conta_fisica set saldo = ? " +"WHERE id_conta_Fisica = ?";
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		
@@ -96,7 +96,7 @@ public class Conta_Fisica_DAO  {
 
 	public void updateStatus(Conta_Fisica conta) {
 		
-		String sql = "UPDATE conta_fisica set status = ? "+"WHERE id_conta_fisica = ?";
+		String sql = "UPDATE conta_fisica set status = ? "+"WHERE id_conta_Fisica = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm =null;
@@ -136,7 +136,7 @@ public class Conta_Fisica_DAO  {
 	}
 	public void deleteByID(int id) {
 		
-		String sql = "DELETE  FROM conta_fisica WHERE id_conta_fisica = ?";
+		String sql = "DELETE  FROM conta_fisica WHERE id_conta_Fisica = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -166,7 +166,7 @@ public class Conta_Fisica_DAO  {
 		
 		String sql = "SELECT * FROM conta_fisica";
 		
-		List<Conta_Fisica> conta_fisica = new ArrayList<Conta_Fisica>();
+		List<Conta_Fisica> conta_Fisica = new ArrayList<Conta_Fisica>();
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -181,12 +181,12 @@ public class Conta_Fisica_DAO  {
 				 
 				Pessoa_Fisica_DAO c = new Pessoa_Fisica_DAO();
 				@SuppressWarnings("unused")
-				int id = rset.getInt("id_conta_fisica");
-				int idd = rset.getInt("id_pessoa_fisica");
+				int id = rset.getInt("id_conta_Fisica");
+				int idd = rset.getInt("id_pessoa_Fisica");
 				double saldo = rset.getDouble("saldo");
 				boolean status = rset.getBoolean("status");
 				Conta_Fisica conta = new Conta_Fisica(c.acharPessoa_Fisica(idd),saldo,status);
-				conta_fisica.add(conta);
+				conta_Fisica.add(conta);
 				
 			}
 			
@@ -206,7 +206,7 @@ public class Conta_Fisica_DAO  {
 			}
 		}
 		
-		return conta_fisica;
+		return conta_Fisica;
 		
 		
 	}

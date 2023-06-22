@@ -2,19 +2,17 @@ package modelo;
 
 
 
-import java.util.ArrayList;
-import java.util.List;
 import java.time.LocalDate;
 public abstract class Extrato {
-		private int idPessoa_Fisica_Extrato;
+		private int idPessoa;
 	    private LocalDate data;
 	    private String descricao;
 	    private double valor;
 	    private int mes;
 	    private int ano;
 
-	    public Extrato(int idPessoa_Fisica,String data, String descricao, double valor, String mes, String ano) {
-	    	this.idPessoa_Fisica_Extrato = idPessoa_Fisica;
+	    public Extrato(int idPessoa,String data, String descricao, double valor, String mes, String ano) {
+	    	this.idPessoa = idPessoa;
 	        this.data = LocalDate.now();
 	        this.descricao = descricao;
 	        this.valor = valor;
@@ -28,7 +26,7 @@ public abstract class Extrato {
 
 		@Override
 		public String toString() {
-			return "\nId_Pessoa_Fisica: "+ this.getIdPessoa_Fisica()+
+			return "\nNumero da Conta: "+ this.getIdPessoa()+
 					"\nMês: "+ this.getMes()+
 					"\nAno: "+ this.getAno() +
 					"\nData: "+this.getData()+
@@ -56,8 +54,8 @@ public abstract class Extrato {
 	    public int getAno() {
 	        return ano;
 	    }
-	    public int getIdPessoa_Fisica() {
-	        return idPessoa_Fisica_Extrato;
+	    public int getIdPessoa() {
+	        return idPessoa;
 	    }
 	   
 	}
